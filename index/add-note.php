@@ -1,12 +1,5 @@
 <?php
-$linkData = [
-  'host' => 'localhost',
-  'user' => 'root',
-  'password' => 'root',
-  'db_name' => 'test',
-];
-$link = mysqli_connect($linkData["host"], $linkData["user"], $linkData["password"], $linkData["db_name"]);
-mysqli_query($link, "SET NAMES 'utf8'");
+require_once 'SQL.php';
 if (!empty($_POST)) {
   $query = "INSERT INTO guest__book SET `name`='$_POST[name]', `text`='$_POST[text]', `date`=CURDATE(), `time`= CURTIME()";
   $resultPOST = mysqli_query($link, $query) or die(mysqli_error($link));
